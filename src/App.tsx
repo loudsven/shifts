@@ -1,4 +1,4 @@
-import { useState } from "react"
+import React, { useState } from "react"
 import "./App.css"
 import { generateShifts, type Shift } from "./generate-shifts"
 import { formatDate } from "./utils"
@@ -21,6 +21,11 @@ function App() {
 	const [dailyRate, setDailyRate] = useState(0)
 	const [isValid, setIsValid] = useState(false)
 
+	const dateChangeHandle = (e: React.ChangeEvent<HTMLInputElement>) => {
+		setIsValid(e.target.validity.valid)
+		setShifts([])
+	}
+
 	return (
 		<>
 			<section id="center">
@@ -30,7 +35,7 @@ function App() {
 						type="date"
 						name="start-date"
 						id="start-date-input"
-						onChange={(e) => setIsValid(e.target.validity.valid)}
+						onChange={(e) => dateChangeHandle(e)}
 					/>
 					<button disabled={!isValid} type="submit" id="generate-shifts-button">
 						generate
