@@ -5,7 +5,7 @@ import { formatDate } from "./utils"
 
 function App() {
 	const [shifts, setShifts] = useState<Shift[]>([])
-	const submitHandle = (e) => {
+	const submitHandle = (e: React.SubmitEvent<HTMLFormElement>) => {
 		e.preventDefault()
 
 		const formData = new FormData(e.currentTarget)
