@@ -3,7 +3,7 @@ export const formatDate = (date: Date): string => {
 		month: "long",
 	}).format(date)
 	if (month === "март" || month === "август") {
-		month = month.slice(0, -1) + "а"
+		month = month + "а"
 	} else {
 		month = month.slice(0, -1) + "я"
 	}
